@@ -1,0 +1,11 @@
+local c = require("component")
+local gpu = c.proxy(c.get("009"))
+local screen = c.get("2ed")
+gpu.bind(screen)
+os.execute("resetscr")
+os.execute("drawtext")
+for i=1,30 do
+
+drawText("hello world"..i.."\n",gpu)
+os.sleep(0.5)
+end

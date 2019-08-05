@@ -1,0 +1,6 @@
+local c = require("component")
+local gpu2 = c.proxy(c.get("009"))
+local screen2 = c.get("2ed")
+gpu2.bind(screen2)
+
+drawText("else1 \n",gpu2)

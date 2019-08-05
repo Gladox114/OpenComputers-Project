@@ -1,0 +1,19 @@
+local c = require("component")
+local meController = c.proxy(c.me_controller.address)
+    for curIdx = 1, #items do
+        curName = items[curIdx][1]
+        curDamage = items[curIdx][2]
+        curMinValue = items[curIdx][3]
+        curMaxRequest = items[curIdx][4]
+        curCrafting = items[curIdx][5]
+        curCraftStatus = items[curIdx][6]
+        storedItem,a,b,c,d,e = meController.getItemsInNetwork({
+            name = curName,
+            damage = curDamage
+            })
+print(storedItem[1])
+print(storedItem[1].size)
+print(storedItem[1].label)
+print(storedItem[1].name)
+print(storedItem[1].damage)
+    end

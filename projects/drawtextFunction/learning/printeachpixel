@@ -1,0 +1,10 @@
+local c=require("component")
+local gpu = c.gpu
+local x,y = gpu.getResolution()
+for i=1,y,1 do
+for z=1,x,10 do
+gpu.set(z,i,"X"..z..","..i)
+end
+end
+print(x,y)
+os.sleep(2)
