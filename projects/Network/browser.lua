@@ -1,4 +1,4 @@
-function start()
+--function start()
 component = require("component")
 term = require("term")
 modem = component.modem
@@ -51,4 +51,4 @@ while true do
     end
     
 end
-end
+--end
