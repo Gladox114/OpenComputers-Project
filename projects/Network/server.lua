@@ -51,7 +51,7 @@ end
 
 while true do
     while true do
-        local _,_, from, port, _, message = event.pull(1,"modem_message")
+        _,_, from, port, _, message = event.pull(1,"modem_message")
         if message then break end
     end
 print(from, message)

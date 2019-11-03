@@ -47,7 +47,7 @@ while true do
         end
         --print("Shutting down...")
         --os.shutdown() 
-        os.sleep(0.1)
+        os.sleep(0.4)
     end
     
 end
