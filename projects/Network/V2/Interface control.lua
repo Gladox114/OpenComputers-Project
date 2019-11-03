@@ -35,12 +35,12 @@ end
 
 function screen()
     interface.clearAllObjects()
-    interface.newLabel("background","",1,1,x,y,color1)
+    interface.newLabel("0","",1,1,x,y,color1)
     interface.newLabel("1",Label,z,3,Label:len()+2,3,color2)
     interface.newLabel("2","Terminal message:",6,23,19,3,color2)
     interface.newLabel("3","  ",25,23,20,3,color2) --20
-    interface.newButton("6","Open",33,13,6,3,open,nil,color3,color2,0)
-    interface.newButton("5","Toggle",41,13,8,3,toggle,nil,color3,color2,1)
+    interface.newButton("5","Open",33,13,6,3,open,nil,color3,color2,0)
+    interface.newButton("6","Toggle",41,13,8,3,toggle,nil,color3,color2,1)
     interface.updateAll()
 end
 
