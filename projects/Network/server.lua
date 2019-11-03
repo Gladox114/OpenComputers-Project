@@ -75,5 +75,5 @@ elseif command == 0x12 then
 --    modem.send(from, ip, Input)
 end
 
-os.sleep(0.1)
+os.sleep(0.4)
 end
