@@ -58,9 +58,9 @@ application:addChild(GUI.button(1, 1, 10, 3, 0xE1E1E1, 0x4B4B4B, color2, 0x0, "S
     
 
 
-
+    -- Add a container to application
     local container = application:addChild(GUI.container(1, 1, application.width, application.height))
-
+    -- Add a panel with onTouch() method to container 
     container.panel = container:addChild(GUI.panel(1, 1, container.width, container.height, GUI.BACKGROUND_CONTAINER_PANEL_COLOR, GUI.BACKGROUND_CONTAINER_PANEL_TRANSPARENCY))
     container.panel.eventHandler = function(application, object, e1)
         if e1 == "touch" then
@@ -68,26 +68,24 @@ application:addChild(GUI.button(1, 1, 10, 3, 0xE1E1E1, 0x4B4B4B, color2, 0x0, "S
             application:draw()
         end
     end
-
+    -- Add a layout to container
     container.layout = container:addChild(GUI.layout(1, 1, container.width, container.height, 1, 1))
+    -- Add a label to layout
     container.label = container.layout:addChild(GUI.label(1, 1, 1, 1, GUI.BACKGROUND_CONTAINER_TITLE_COLOR, "Settings")):setAlignment(GUI.ALIGNMENT_HORIZONTAL_CENTER, GUI.ALIGNMENT_VERTICAL_TOP)
+ 
     -- Add a background container to application with background panel and layout
     --local container = GUI.addBackgroundContainer(application, true, true, "Settings")
     -- Add a switch and label to it's layout
-    
     --container.layout:addChild(GUI.switchAndLabel(1, 1, 36, 8, 0x66DB80, 0x2D2D2D, 0xE1E1E1, 0x878787, "I like to suck big dicks:", true))
 
+    -- Add a input field to layout
     local textfield = container.layout:addChild(GUI.input(1, 1, 30, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, newIP or "" , "Input IP", false))
-    
+    -- Add a button to layout
     container.layout:addChild(GUI.button(1,3,10,3,0xA5A5A5,0xFFFFFF, 0x696969, 0xFFFFFF,"OK")).onTouch = function()
         newIP = textfield.text
         container:remove()
         application:draw()
     end
---    textfield.validator = function(Tinput)
---        GUI.alert("Input:"..Tinput)
---        textfield.close
---    end
 end
 
 
