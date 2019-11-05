@@ -4,7 +4,17 @@ local term = require("term")
 local c = require("component")
 local m = c.modem
 local color1,color2 = 0x2D2D2D,0xC3C3C3--0xC3C3C3,0xA5A5A5
-local IP = 8887
+local ip = 8887
+
+local function confRead()
+local file = io.open("config.txt","r")
+if file then
+    IP = file:read()
+    ip = IP
+end
+file:close()
+end
+confRead()
 --------------------------------------------------------------------------------
 
 local label_top = "Enrichment Center Control Tablet"
@@ -79,10 +89,14 @@ application:addChild(GUI.button(1, 1, 10, 3, 0xE1E1E1, 0x4B4B4B, color2, 0x0, "S
     --container.layout:addChild(GUI.switchAndLabel(1, 1, 36, 8, 0x66DB80, 0x2D2D2D, 0xE1E1E1, 0x878787, "I like to suck big dicks:", true))
 
     -- Add a input field to layout
-    local textfield = container.layout:addChild(GUI.input(1, 1, 30, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, newIP or "" , "Input IP", false))
+    local textfield = container.layout:addChild(GUI.input(1, 1, 30, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, newIP or IP or "" , "Input IP", false))
     -- Add a button to layout
     container.layout:addChild(GUI.button(1,3,10,3,0xA5A5A5,0xFFFFFF, 0x696969, 0xFFFFFF,"OK")).onTouch = function()
         newIP = textfield.text
+        local config = io.open("config.txt","w")
+        config:write(newIP)
+        config:close()
+        confRead()
         container:remove()
         application:draw()
     end
