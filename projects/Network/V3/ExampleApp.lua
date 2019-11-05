@@ -8,11 +8,11 @@ local application = GUI.application()
 -- Event handler
 application.eventHandler = function(application,object,e1,e2,e3,e4)
     if e1 == "key_down" then
-        if e3 == 15 and e4 == 24 then
+        if e3 == 15 and e4 == 24 then -- #That one is Nice because it's the way i found out to close the application with ctrl+O
             application:addChild(GUI.panel(1, 1, application.width, application.height, 0x000000))
             application:draw()
             os.exit()
-        elseif e4 == 57 then 
+        elseif e4 == 57 then -- #some keys like SPACE to execute code.
             --code
         elseif e4 == 36 then
             --code

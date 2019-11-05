@@ -82,11 +82,13 @@ application:addChild(GUI.button(1, 1, 10, 3, 0xE1E1E1, 0x4B4B4B, color2, 0x0, "S
     container.layout = container:addChild(GUI.layout(1, 1, container.width, container.height, 1, 1))
     -- Add a label to layout
     container.label = container.layout:addChild(GUI.label(1, 1, 1, 1, GUI.BACKGROUND_CONTAINER_TITLE_COLOR, "Settings")):setAlignment(GUI.ALIGNMENT_HORIZONTAL_CENTER, GUI.ALIGNMENT_VERTICAL_TOP)
- 
+
+--[[
     -- Add a background container to application with background panel and layout
-    --local container = GUI.addBackgroundContainer(application, true, true, "Settings")
+    --local container = GUI.addBackgroundContainer(application, true, true, "Settings")-- #not usefull, no option to remove object after pressing button. I copied from the GUI.lua the function and edited it above so you can see how that function was made.
     -- Add a switch and label to it's layout
-    --container.layout:addChild(GUI.switchAndLabel(1, 1, 36, 8, 0x66DB80, 0x2D2D2D, 0xE1E1E1, 0x878787, "I like to suck big dicks:", true))
+    --container.layout:addChild(GUI.switchAndLabel(1, 1, 36, 8, 0x66DB80, 0x2D2D2D, 0xE1E1E1, 0x878787, "I like to suck big dicks:", true))-- #not usefull
+]]
 
     -- Add a input field to layout
     local textfield = container.layout:addChild(GUI.input(1, 1, 30, 3, 0xEEEEEE, 0x555555, 0x999999, 0xFFFFFF, 0x2D2D2D, newIP or IP or "" , "Input IP", false))
